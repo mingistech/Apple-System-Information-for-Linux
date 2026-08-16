@@ -1,0 +1,51 @@
+name: Build RPMs
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  rpm-x86_64:
+    name: RPM x86_64
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Rocky Linux 10 x86_64 RPM
+        run: |
+          mkdir -p dist
+          docker run --rm \
+            --platform linux/amd64 \
+            -v "$PWD:/src:Z" \
+            -w /src \
+            rockylinux/rockylinux:10 \
+            bash -lc '
+              set -euo pipefail
+              dnf -y install rpm-build gcc-c++ cmake qt6-qtbase-devel desktop-file-utils tar gzip
+              mkdir -p /root/rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
+              tar -czf /root/rpmbuild/SOURCES/spx-viewer-1.0.0.tar.gz \
+                --transform "s,^,spx-viewer-1.0.0/," \
+                CMakeLists.txt LICENSE README.md src data screenshots
+              cp packaging/spx-viewer.spec /root/rpmbuild/SPECS/
+              rpmbuild -ba /root/rpmbuild/SPECS/spx-viewer.spec
+              mkdir -p /src/dist
+              cp /root/rpmbuild/RPMS/x86_64/spx-viewer-*.rpm /src/dist/
+            '
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: spx-viewer-el10-x86_64
+          path: dist/spx-viewer-*.x86_64.rpm
+
+      - name: Attach to GitHub Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/spx-viewer-*.x86_64.rpm
+          fail_on_unmatched_files: true
