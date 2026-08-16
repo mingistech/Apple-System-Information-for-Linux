@@ -32,10 +32,10 @@ Binary and source RPMs are attached to the [1.0.0 release](https://github.com/mi
 **RHEL 10 / Rocky / AlmaLinux (prebuilt):**
 
 ```bash
-# aarch64
+# aarch64 (ARM64 machines)
 sudo dnf install ./spx-viewer-1.0.0-1.el10.aarch64.rpm
 
-# x86_64
+# x86_64 (Intel/AMD 64-bit)
 sudo dnf install ./spx-viewer-1.0.0-1.el10.x86_64.rpm
 ```
 
