@@ -29,14 +29,16 @@ viewer for reports generated on macOS with System Information → File → Save.
 
 %install
 %cmake_install
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/io.github.mingistech.SpxViewer.desktop
 
 %files
 %license LICENSE
 %doc README.md
 %{_bindir}/%{name}
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/io.github.mingistech.SpxViewer.desktop
 %{_datadir}/mime/packages/%{name}.xml
+%{_datadir}/metainfo/io.github.mingistech.SpxViewer.metainfo.xml
+%{_datadir}/icons/hicolor/scalable/apps/io.github.mingistech.SpxViewer.svg
 
 %changelog
 * Sun Aug 16 2026 Brandon <mingistech@users.noreply.github.com> - 1.0.0-1

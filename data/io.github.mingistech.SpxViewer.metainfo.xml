@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.mingistech.SpxViewer</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>SPX Viewer</name>
+  <summary>View Apple System Information reports on Linux</summary>
+  <description>
+    <p>
+      SPX Viewer opens Apple System Information .spx reports and presents
+      hardware, network, and software details in a browsable desktop interface.
+    </p>
+    <p>
+      It does not collect information from the Linux computer. Reports are
+      created on a Mac with System Information → File → Save.
+    </p>
+  </description>
+  <launchable type="desktop-id">io.github.mingistech.SpxViewer.desktop</launchable>
+  <url type="homepage">https://github.com/mingistech/Apple-System-Information-for-Linux</url>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Hardware overview from a saved Mac system report</caption>
+      <image>https://raw.githubusercontent.com/mingistech/Apple-System-Information-for-Linux/main/screenshots/spx-viewer.png</image>
+    </screenshot>
+  </screenshots>
+  <provides>
+    <binary>spx-viewer</binary>
+    <mediatype>application/x-apple-system-profiler</mediatype>
+  </provides>
+  <categories>
+    <category>System</category>
+    <category>Utility</category>
+  </categories>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="1.0.0" date="2026-08-16"/>
+  </releases>
+</component>

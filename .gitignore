@@ -5,6 +5,8 @@ cmake-build-*/
 .cache/
 .idea/
 .vscode/
+.flatpak-builder/
+*.flatpak
 *~
 *.o
 CMakeLists.txt.user

@@ -49,6 +49,24 @@ sudo dnf install ~/rpmbuild/RPMS/$(uname -m)/spx-viewer-*.rpm
 
 After installation, run `spx-viewer` from the application menu or a terminal.
 
+## Install from Flatpak
+
+An x86_64 Flatpak is attached to the [1.0.0 release](https://github.com/mingistech/Apple-System-Information-for-Linux/releases/tag/v1.0.0). It runs on SteamOS (Steam Deck desktop mode) and other distributions with Flatpak, including Fedora, Ubuntu, Debian, and Arch.
+
+The bundle uses the KDE Platform 6.8 runtime from Flathub.
+
+```bash
+flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install --user ./spx-viewer-1.0.0-x86_64.flatpak
+flatpak run io.github.mingistech.SpxViewer
+```
+
+On Steam Deck, switch to Desktop Mode first, then install from a terminal or Discover after adding the downloaded `.flatpak` file. You can also open a report directly:
+
+```bash
+flatpak run io.github.mingistech.SpxViewer /path/to/report.spx
+```
+
 ## Requirements
 
 - Linux

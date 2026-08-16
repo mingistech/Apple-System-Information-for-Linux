@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     app.setApplicationDisplayName(QStringLiteral("SPX Viewer"));
     app.setApplicationVersion(QStringLiteral("1.0.0"));
     app.setOrganizationName(QStringLiteral("SPX Viewer"));
-    app.setDesktopFileName(QStringLiteral("spx-viewer"));
+    app.setDesktopFileName(QStringLiteral("io.github.mingistech.SpxViewer"));
 
     MainWindow window;
     window.show();

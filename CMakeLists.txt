@@ -39,5 +39,11 @@ set_target_properties(spx-viewer PROPERTIES
 )
 
 install(TARGETS spx-viewer RUNTIME DESTINATION bin)
-install(FILES data/spx-viewer.desktop DESTINATION share/applications)
+install(FILES data/spx-viewer.desktop
+        DESTINATION share/applications
+        RENAME io.github.mingistech.SpxViewer.desktop)
 install(FILES data/spx-viewer.xml DESTINATION share/mime/packages)
+install(FILES data/io.github.mingistech.SpxViewer.metainfo.xml
+        DESTINATION share/metainfo)
+install(FILES data/icons/io.github.mingistech.SpxViewer.svg
+        DESTINATION share/icons/hicolor/scalable/apps)

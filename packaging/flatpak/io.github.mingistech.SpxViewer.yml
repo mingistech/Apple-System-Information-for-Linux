@@ -1,0 +1,23 @@
+app-id: io.github.mingistech.SpxViewer
+runtime: org.kde.Platform
+runtime-version: "6.8"
+sdk: org.kde.Sdk
+command: spx-viewer
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  - --filesystem=home
+  - --filesystem=xdg-download
+  - --filesystem=xdg-documents
+  - --filesystem=/run/media
+  - --filesystem=/media
+modules:
+  - name: spx-viewer
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+    sources:
+      - type: dir
+        path: ../..

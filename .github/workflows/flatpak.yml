@@ -1,0 +1,35 @@
+name: Build Flatpak
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  flatpak-x86_64:
+    name: Flatpak x86_64
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:kde-6.8
+      options: --privileged
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Flatpak
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: spx-viewer-1.0.0-x86_64.flatpak
+          manifest-path: packaging/flatpak/io.github.mingistech.SpxViewer.yml
+          cache-key: flatpak-x86_64-${{ github.sha }}
+          arch: x86_64
+
+      - name: Attach to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name || 'v1.0.0' }}
+          files: spx-viewer-1.0.0-x86_64.flatpak
+          fail_on_unmatched_files: true
