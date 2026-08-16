@@ -29,10 +29,14 @@ Typical report areas include Hardware, Memory, Graphics/Displays, Storage, USB, 
 
 Binary and source RPMs are attached to the [1.0.0 release](https://github.com/mingistech/Apple-System-Information-for-Linux/releases/tag/v1.0.0). They target Fedora, RHEL, Rocky Linux, and AlmaLinux with Qt 6.
 
-**aarch64** (prebuilt):
+**RHEL 10 / Rocky / AlmaLinux (prebuilt):**
 
 ```bash
+# aarch64
 sudo dnf install ./spx-viewer-1.0.0-1.el10.aarch64.rpm
+
+# x86_64
+sudo dnf install ./spx-viewer-1.0.0-1.el10.x86_64.rpm
 ```
 
 **x86_64** or another architecture, rebuild from the source RPM:
