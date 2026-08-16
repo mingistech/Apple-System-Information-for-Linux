@@ -6,6 +6,8 @@ On a Mac, System Information can save a full hardware and software report with *
 
 It does **not** collect information from the Linux computer. It is a viewer for reports generated on macOS.
 
+![SPX Viewer showing a MacBook Pro hardware overview](screenshots/spx-viewer.png)
+
 [Apple’s System Information documentation](https://support.apple.com/guide/system-information/system-information-user-guide-syspr35536/mac) is a useful reference for the kind of data these reports contain.
 
 ## What it does
