@@ -39,3 +39,5 @@ set_target_properties(spx-viewer PROPERTIES
 )
 
 install(TARGETS spx-viewer RUNTIME DESTINATION bin)
+install(FILES data/spx-viewer.desktop DESTINATION share/applications)
+install(FILES data/spx-viewer.xml DESTINATION share/mime/packages)

@@ -25,6 +25,26 @@ Different Macs and macOS versions include different categories. The viewer is ge
 
 Typical report areas include Hardware, Memory, Graphics/Displays, Storage, USB, Thunderbolt, Network, Wi-Fi, Bluetooth, Audio, Software, Applications, Extensions, and Installations.
 
+## Install from RPM
+
+Binary and source RPMs are attached to the [1.0.0 release](https://github.com/mingistech/Apple-System-Information-for-Linux/releases/tag/v1.0.0). They target Fedora, RHEL, Rocky Linux, and AlmaLinux with Qt 6.
+
+**aarch64** (prebuilt):
+
+```bash
+sudo dnf install ./spx-viewer-1.0.0-1.el10.aarch64.rpm
+```
+
+**x86_64** or another architecture, rebuild from the source RPM:
+
+```bash
+sudo dnf install rpm-build gcc-c++ cmake qt6-qtbase-devel desktop-file-utils
+rpmbuild --rebuild spx-viewer-1.0.0-1.el10.src.rpm
+sudo dnf install ~/rpmbuild/RPMS/$(uname -m)/spx-viewer-*.rpm
+```
+
+After installation, run `spx-viewer` from the application menu or a terminal.
+
 ## Requirements
 
 - Linux

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=SPX Viewer
+GenericName=Apple System Information Viewer
+Comment=View Apple System Information .spx reports
+Exec=spx-viewer %f
+Icon=computer
+Terminal=false
+StartupNotify=true
+Categories=System;
+MimeType=application/x-apple-system-profiler;
+Keywords=Apple;Mac;SPX;System Information;System Profiler;
